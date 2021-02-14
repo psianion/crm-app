@@ -14,15 +14,15 @@ export async function loginUser(dispatch, loginPayload) {
       data: loginPayload,
     });
     let response = await res.data;
-    if (res.status === 200) {
+    if (response.message == "User login successfully") {
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
       localStorage.setItem("currentUser", JSON.stringify(response.data));
-      console.log(response);
       console.log(response.message);
       return response.data;
     } else {
       dispatch({ type: "LOGIN_ERROR", err: response.message });
       console.error(response.message);
+      return;
     }
   } catch (err) {
     dispatch({ type: "LOGIN_ERROR", err: err });
