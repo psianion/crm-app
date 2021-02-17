@@ -1,9 +1,11 @@
 import React from "react";
 import { logout } from "../../actions/authAction";
 import { useAuthDispatch, useAuthState } from "../../contexts/authContext";
-import styles from "./dashboard.module.css";
+import { LeadList } from "../../components/TablePage/LeadList";
+import styles from "./leads.module.css";
+import CCList from "../../components/TablePage/CCList";
 
-function Dashboard(props) {
+function Leads(props) {
   const dispatch = useAuthDispatch();
   const userDetails = useAuthState();
 
@@ -11,14 +13,9 @@ function Dashboard(props) {
     logout(dispatch);
     props.history.push("/login");
   };
-
-  const handleLeadsList = async (e) => {
-    e.preventDefault();
-    props.history.push("/leads");
-  };
   return (
     <div style={{ padding: 10 }}>
-      <div className={styles.dashboardPage}>
+      <div className={styles.leadsPage}>
         <h1>Welcome, {userDetails.username}</h1>
 
         <button className={styles.logoutBtn} onClick={handleLogout}>
@@ -26,10 +23,11 @@ function Dashboard(props) {
         </button>
       </div>
       <div>
-        <button onClick={handleLeadsList}>Leads List</button>
+        <LeadList />
+        <CCList />
       </div>
     </div>
   );
 }
 
-export default Dashboard;
+export default Leads;

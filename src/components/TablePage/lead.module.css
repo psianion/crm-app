@@ -1,0 +1,15 @@
+li {
+  list-style: none;
+}
+
+.leadContainer {
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  margin: 1rem;
+}
+.leadContainer span {
+  padding: 2rem;
+}

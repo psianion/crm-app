@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
+import Leads from "../pages/Leads";
 import NotFound from "../pages/NotFound";
 
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
+    isPrivate: true,
+  },
+  {
+    path: "/leads",
+    component: Leads,
     isPrivate: true,
   },
   {
