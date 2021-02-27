@@ -16,11 +16,6 @@ const routes = [
     isPrivate: true,
   },
   {
-    path: "/leads",
-    component: Leads,
-    isPrivate: true,
-  },
-  {
     path: "/*",
     component: NotFound,
     isPrivate: true,

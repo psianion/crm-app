@@ -26,12 +26,12 @@ function Login(props) {
   return (
     <div className={styles.container}>
       <div className={{ width: 200 }}>
-        <h1>Login Page</h1>
+        <h1 className={styles.head}>Login Page</h1>
         {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
         <form>
           <div className={styles.loginForm}>
             <div className={styles.loginFormItem}>
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">USERNAME</label>
               <input
                 type="text"
                 id="username"
@@ -41,7 +41,7 @@ function Login(props) {
               />
             </div>
             <div className={styles.loginFormItem}>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">PASSWORD</label>
               <input
                 type="password"
                 id="password"

@@ -31,7 +31,11 @@ export default function CCSelect() {
         <Select native label="Assign CC">
           <option aria-label="None" value="" />
           {ccs.map((cc) => {
-            return <option value={cc.id}>{cc.name}</option>;
+            return (
+              <option key={cc.id} value={cc.id}>
+                {cc.name}
+              </option>
+            );
           })}
         </Select>
       </FormControl>

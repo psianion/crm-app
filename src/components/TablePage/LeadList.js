@@ -1,16 +1,10 @@
 import React, { useContext, useEffect } from "react";
 
 import { LeadsContext } from "../../contexts/leadsContext";
-import { Lead } from "./Lead";
 import MUIDataTable from "mui-datatables";
 
 export const LeadList = () => {
-  const { leads, getLeads } = useContext(LeadsContext);
-
-  useEffect(() => {
-    getLeads();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { leads } = useContext(LeadsContext);
 
   const columns = [
     {
@@ -53,6 +47,14 @@ export const LeadList = () => {
         sort: false,
       },
     },
+    {
+      name: "lead_status",
+      label: "Status",
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
   ];
 
   const data = leads.map((lead) => {
@@ -62,6 +64,7 @@ export const LeadList = () => {
     container.location = lead.location;
     container.pmobile = lead.pmobile;
     container.email = lead.email;
+    container.lead_status = lead.lead_status;
     return container;
   });
 
